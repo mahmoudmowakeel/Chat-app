@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.message1 {
+  position: relative;
+  background-color: #4a51fd;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 7px 20px;
+  max-width: fit-content;
+  word-wrap: break-word;
+  margin-left: auto;
+  color: white;
+  font-weight: 500;
+}
+.message2 {
+  position: relative;
+  background-color: #c9cfd0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 7px 20px;
+  max-width: fit-content;
+  word-wrap: break-word;
+  margin-right: auto;
+  color: black;
+  font-weight: 500;
+}
+
+.message1::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: -4px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #4a51fd;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -5px;
+  margin-top: -5px;
+}
+.message2::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -4px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #c9cfd0;
+  border-bottom: 0;
+  border-left: 0;
+  margin-right: -5px;
+  margin-top: -5px;
+}
+.logout::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #7f36c8;
+  border-top: 0;
+  border-right: 0;
+  margin-left: -5px;
+  margin-bottom: -5px;
+}
