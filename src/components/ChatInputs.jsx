@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import ChatIndicator from "./ChatIndicators";
-import { useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import useSignalR from "../hooks/SignalR";
 import { addGroupImage, addImage, resetImage } from "../slices/imageSlice";
 import fetchAndConvertImageCode from "../data/getImageByCode";
@@ -42,6 +42,15 @@ export default function ChatInputs({ fUserName, toShow }) {
         ? msg.File
         : fetchAndConvertImageCode(msg.File),
   }));
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [finalMessages, groupMessages]);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -141,7 +150,7 @@ export default function ChatInputs({ fUserName, toShow }) {
   };
 
   return toShow === "chats" ? (
-    <div className="h-[70%] overflow-auto pb-10">
+    <div className="h-[70%] overflow-auto  pb-10">
       <div className=" flex flex-col overflow-auto mt-5">
         {loadMessages ? (
           <Spinner content="Messages" />
@@ -173,6 +182,7 @@ export default function ChatInputs({ fUserName, toShow }) {
               ) : (
                 <li className="message2">{msg.Message}</li>
               )}
+              <span ref={messagesEndRef} className="overflow-hidden" />
             </ul>
           ))
         )}
@@ -232,6 +242,7 @@ export default function ChatInputs({ fUserName, toShow }) {
               )
             )
           )}
+          <span ref={messagesEndRef} className="overflow-hidden" />
         </ul>
       </div>
 

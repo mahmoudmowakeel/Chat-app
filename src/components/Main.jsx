@@ -13,7 +13,7 @@ export default function Main() {
   function handleShowAddMembers() {
     addMembersRef.current.classList.toggle("hidden");
     removeMembersRef.current.classList.add("hidden");
-    aboutRef.current.classList.toggle("invisible");
+    aboutRef.current.classList.toggle("hidden");
     aboutRef.current.classList.toggle("opacity-0");
     if (chatInfoRef.current.classList.contains("md:col-span-7")) {
       chatInfoRef.current.classList.remove("md:col-span-7");
@@ -26,7 +26,7 @@ export default function Main() {
   function handleShowRemoveMembers() {
     removeMembersRef.current.classList.toggle("hidden");
     addMembersRef.current.classList.add("hidden");
-    aboutRef.current.classList.toggle("invisible");
+    aboutRef.current.classList.toggle("hidden");
     aboutRef.current.classList.toggle("opacity-0");
     if (chatInfoRef.current.classList.contains("md:col-span-7")) {
       chatInfoRef.current.classList.remove("md:col-span-7");

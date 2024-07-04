@@ -83,14 +83,14 @@ export default function AboutChat({
 
   const handleDeleteGroup = async () => {
     await connection.invoke("DeleteGroup", selectedGroupId);
-    aboutRef.current.classList.add("invisible");
+    aboutRef.current.classList.add("hidden");
     aboutRef.current.classList.add("opacity-0");
     dispatch(removeActive());
   };
   const handleLeaveGroup = async () => {
     await connection.invoke("RemoveMemberFromGroup", selectedGroupId, userName);
     dispatch(removeGroupMember(userName));
-    aboutRef.current.classList.add("invisible");
+    aboutRef.current.classList.add("hidden");
     aboutRef.current.classList.add("opacity-0");
     dispatch(removeActive());
   };
@@ -98,13 +98,13 @@ export default function AboutChat({
   return (
     <div
       ref={aboutRef}
-      className="absolute z-50 md:static md:z-30 w-full h-screen md:w-full md:h-fit bg-white px-7 py-2  md:col-span-2 mx-4 overflow-y-auto overflow-x-hidden invisible opacity-0 transition-all duration-500 "
+      className="absolute z-50 md:static md:z-30 w-full h-screen md:w-full md:h-fit bg-white px-7 py-2  md:col-span-2 mx-4 overflow-y-auto overflow-x-hidden hidden opacity-0 transition-all duration-500 "
     >
       <section className="flex flex-col justify-center items-center mt-[15px]">
         <FaArrowLeft
           className=" md:hidden absolute left-10 top-[50px]  inline mr-7 text-xl cursor-pointer "
           onClick={() => {
-            aboutRef.current.classList.add("invisible");
+            aboutRef.current.classList.add("hidden");
             aboutRef.current.classList.add("opacity-0");
           }}
         />{" "}

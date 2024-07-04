@@ -126,7 +126,7 @@ export default function Home({ toShow, setToShow, aboutRef, chatInfoRef }) {
             } py-1 px-2 border border-black rounded-lg w-full hover:bg-primary hover:text-white font-coiny transition-all duration-300`}
             onClick={() => {
               setToShow("chats");
-              aboutRef.current.classList.add("invisible");
+              aboutRef.current.classList.add("hidden");
               aboutRef.current.classList.add("opacity-0");
               chatInfoRef.current.classList.remove("md:col-span-5");
               chatInfoRef.current.classList.add("md:col-span-7");
@@ -142,7 +142,7 @@ export default function Home({ toShow, setToShow, aboutRef, chatInfoRef }) {
             } py-1 px-2 border border-black rounded-lg w-full hover:bg-primary hover:text-white font-coiny transition-all duration-300`}
             onClick={() => {
               setToShow("groups");
-              aboutRef.current.classList.add("invisible");
+              aboutRef.current.classList.add("hidden");
               aboutRef.current.classList.add("opacity-0");
               chatInfoRef.current.classList.remove("md:col-span-5");
               chatInfoRef.current.classList.add("md:col-span-7");

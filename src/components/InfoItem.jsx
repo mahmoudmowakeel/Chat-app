@@ -25,7 +25,7 @@ export default function InfoItem({
   const dispatch = useDispatch();
 
   const handleShowAbout = () => {
-    aboutRef.current.classList.toggle("invisible");
+    aboutRef.current.classList.toggle("hidden");
     aboutRef.current.classList.toggle("opacity-0");
     if (chatInfoRef.current.classList.contains("md:col-span-7")) {
       chatInfoRef.current.classList.remove("md:col-span-7");
